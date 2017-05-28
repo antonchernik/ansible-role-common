@@ -6,7 +6,7 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - 8
+    - all
   galaxy_tags:
     - development
     - system
