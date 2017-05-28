@@ -1,0 +1,4 @@
+---
+# defaults file for antonchernik.common
+default_locale: ru_RU.UTF-8
+default_timezone: Europe/Kiev

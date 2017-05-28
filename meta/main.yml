@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Anton Chernik
+  description: Install common tools and libs
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2.0
+  platforms:
+  - name: Debian
+    versions:
+    - 8
+    - jessie
+  categories:
+   - system
+  galaxy_tags: []
+dependencies: []

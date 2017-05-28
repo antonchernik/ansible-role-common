@@ -1,0 +1,67 @@
+---
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
+    force: yes
+
+- name: Install list of common packages
+  apt: name={{item}}
+  with_items:
+    - vim
+    - htop
+    - cron
+    - zip
+    - unzip
+    - wget
+    - curl
+    - mc
+    - sudo
+    - apache2-utils
+    - debconf-utils
+    - ipset
+    - debian-keyring
+    - fail2ban
+    - git
+    - lsb-release
+    - bsdutils
+    - build-essential
+    - libaio1
+    - libcurl4-openssl-dev
+    - libevent-dev
+    - module-init-tools
+    - libc-bin
+
+
+# Ensure a locale exists.
+- locale_gen:
+    name: "{{ default_locale }}"
+    state: present
+
+- name: update locales
+  command: dpkg-reconfigure --frontend noninteractive locales
+
+- name: set timezone
+  timezone:
+    name: "{{ default_timezone }}"
+
+- name: write vimrc
+  copy: src=vimrc dest=/etc/vim/vimrc owner=root group=root mode=0644
+
+- name: correct default editor
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+
+- name: correct default editor
+  alternatives:
+    name: vim
+    path: /usr/bin/vim.basic
+
+- name: correct default editor
+  alternatives:
+    name: vimdiff
+    path: /usr/bin/vim.basic
+
