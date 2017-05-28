@@ -4,10 +4,13 @@ Common
 Ansible role for common tools and libraries. Tested platforms are:
 * Debian 8
 
+Role install packages:
+vim, htop, cron, zip, unzip, wget, curl, mc, sudo, apache2-utils, ipset, git, fail2ban, gcc, g++, network tools etc.
+
 Requirements
 ------------
 
-Debian 8
+Debian 8 (jessie)
 
 Role Variables
 --------------
@@ -27,12 +30,10 @@ Dependencies
 
 None
 
-Example Playbook
+Example 
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    ---
+    - hosts: all
       roles:
          - { role: antonchernik.common }
 
