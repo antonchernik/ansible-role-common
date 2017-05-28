@@ -6,7 +6,7 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - all
+    - jessie
   galaxy_tags:
     - development
     - system
