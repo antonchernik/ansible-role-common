@@ -33,6 +33,8 @@
     - libevent-dev
     - module-init-tools
     - libc-bin
+    - gcc
+    - g++
 
 
 # Ensure a locale exists.
@@ -42,6 +44,8 @@
 
 - name: COMMON ROLE | Update locales
   command: dpkg-reconfigure --frontend noninteractive locales
+  environment:
+   LANG: "{{ default_locale }}"
 
 - name: COMMON ROLE | Set timezone
   timezone:
