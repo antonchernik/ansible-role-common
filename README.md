@@ -17,13 +17,11 @@ Role Variables
 
 Available variables are listed below, along with default values (see defaults/main.yml):
 
-default_locale: ru_RU.UTF-8
+| Parameter | Required | Default | Choices | Comments |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| default_locale | yes | ru_RU.UTF-8 | | Sets default system locale |
+| default_timezone  | yes | Europe/Kiev | | Sets default system timezone  |
 
-Variable set default system locale
-
-default_timezone: Europe/Kiev
-
-Variable set default system timezone
 
 Dependencies
 ------------
