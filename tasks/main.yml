@@ -9,6 +9,7 @@
 
 - name: COMMON ROLE | Install list of common packages
   apt: name={{item}}
+  become: true
   with_items:
     - vim
     - htop
@@ -44,28 +45,35 @@
 
 - name: COMMON ROLE | Update locales
   command: dpkg-reconfigure --frontend noninteractive locales
+  become: true
   environment:
    LANG: "{{ default_locale }}"
+
 
 - name: COMMON ROLE | Set timezone
   timezone:
     name: "{{ default_timezone }}"
+  become: true
 
 - name: COMMON ROLE | Write vimrc
   copy: src=vimrc dest=/etc/vim/vimrc owner=root group=root mode=0644
+  become: true
 
 - name: COMMON ROLE | Correct default editor
   alternatives:
     name: editor
     path: /usr/bin/vim.basic
 
+
 - name: COMMON ROLE | Correct default vim
   alternatives:
     name: vim
     path: /usr/bin/vim.basic
+  become: true
+
 
 - name: COMMON ROLE | correct default vimdiff
   alternatives:
     name: vimdiff
     path: /usr/bin/vim.basic
-
+  become: true
