@@ -42,6 +42,7 @@
 - locale_gen:
     name: "{{ default_locale }}"
     state: present
+  become: true
 
 - name: COMMON ROLE | Update locales
   command: dpkg-reconfigure --frontend noninteractive locales
@@ -63,6 +64,7 @@
   alternatives:
     name: editor
     path: /usr/bin/vim.basic
+  become: true
 
 
 - name: COMMON ROLE | Correct default vim
