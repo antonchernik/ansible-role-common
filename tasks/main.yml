@@ -32,10 +32,16 @@
     - libaio1
     - libcurl4-openssl-dev
     - libevent-dev
-    - module-init-tools
     - libc-bin
     - gcc
     - g++
+
+- name: COMMON ROLE | Install module-init-tools
+  apt: name={{item}}
+  become: true
+  with_items:
+    - module-init-tools
+  when: (ansible_distribution == "Debian" and debian_codename == "jessie")
 
 
 # Ensure a locale exists.

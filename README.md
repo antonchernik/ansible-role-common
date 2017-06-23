@@ -3,6 +3,7 @@ Common
 
 Ansible role for common tools and libraries. Tested platforms are:
 * Debian 8
+* Debian 9
 
 Role install packages:
 vim, htop, cron, zip, unzip, wget, curl, mc, sudo, apache2-utils, ipset, git, fail2ban, gcc, g++, network tools etc.
@@ -11,6 +12,7 @@ Requirements
 ------------
 
 Debian 8 (jessie)
+Debian 9 (stretch)
 
 Role Variables
 --------------
