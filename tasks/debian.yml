@@ -33,4 +33,4 @@
   become: true
   with_items:
     - module-init-tools
-  when: debian_codename == "jessie"
+  when: ansible_distribution_release == "jessie"
