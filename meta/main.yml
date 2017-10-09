@@ -8,6 +8,9 @@ galaxy_info:
     versions:
     - jessie
     - stretch
+  - name: Ubuntu
+    versions:
+    - xenial
   galaxy_tags:
     - development
     - system

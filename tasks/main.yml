@@ -7,42 +7,13 @@
     cache_valid_time: 86400
     force: yes
 
-- name: COMMON ROLE | Install list of common packages
-  apt: name={{item}}
-  become: true
-  with_items:
-    - vim
-    - htop
-    - cron
-    - zip
-    - unzip
-    - wget
-    - curl
-    - mc
-    - sudo
-    - apache2-utils
-    - debconf-utils
-    - ipset
-    - debian-keyring
-    - fail2ban
-    - git
-    - lsb-release
-    - bsdutils
-    - build-essential
-    - libaio1
-    - libcurl4-openssl-dev
-    - libevent-dev
-    - libc-bin
-    - gcc
-    - g++
+- include_tasks: debian.yml
+  when: ansible_distribution == "Debian"
+  static: no
 
-- name: COMMON ROLE | Install module-init-tools
-  apt: name={{item}}
-  become: true
-  with_items:
-    - module-init-tools
-  when: (ansible_distribution == "Debian" and debian_codename == "jessie")
-
+- include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  static: no
 
 # Ensure a locale exists.
 - locale_gen:
