@@ -1,36 +1,30 @@
 ---
-- name: COMMON ROLE | Install list of common packages
-  apt: name={{item}}
-  become: true
-  with_items:
-    - vim
-    - htop
-    - cron
-    - zip
-    - unzip
-    - wget
-    - curl
-    - mc
-    - sudo
-    - apache2-utils
-    - debconf-utils
-    - ipset
-    - debian-keyring
-    - fail2ban
-    - git
-    - lsb-release
-    - bsdutils
-    - build-essential
-    - libaio1
-    - libcurl4-openssl-dev
-    - libevent-dev
-    - libc-bin
-    - gcc
-    - g++
-
-- name: COMMON ROLE | Install module-init-tools
-  apt: name={{item}}
-  become: true
-  with_items:
-    - module-init-tools
-  when: ansible_distribution_release == "jessie"
+- name: "COMMON ROLE | Install list of common packages"
+  apt:
+    pkg:
+      - vim
+      - htop
+      - cron
+      - zip
+      - unzip
+      - wget
+      - curl
+      - mc
+      - sudo
+      - apache2-utils
+      - debconf-utils
+      - ipset
+      - debian-keyring
+      - fail2ban
+      - git
+      - lsb-release
+      - bsdutils
+      - build-essential
+      - libaio1
+      - libcurl4-openssl-dev
+      - libevent-dev
+      - libc-bin
+      - gcc
+      - g++
+      - module-init-tools
+    state: present
